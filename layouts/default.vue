@@ -3,7 +3,6 @@
     <bael-header />
     <nuxt />
     <lazy-slide-out />
-    <bael-footer />
   </section>
 </template>
 <script>

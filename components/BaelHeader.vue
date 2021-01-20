@@ -3,28 +3,28 @@
     <div class="r xs-border-bottom">
       <div class="c-4 xs-text-left xs-p2 sm-border-right">
         <div class="item">
-          <nuxt-link class="sitename" to="/" exact>{{$store.state.info.sitename}}</nuxt-link>
+          <nuxt-link class="sitename" to="/" exact>
+            {{$store.state.info.sitename}}
+            <span class="subtitle">gráfico</span>
+          </nuxt-link>
         </div>
       </div>
 
       <div
-        class="c-4 xs-border-top xs-border-bottom sm-border-bottom-none sm-border-top-none sm-border-left-none sm-border-right xs-p2"
+        class="menu-nav c-4 xs-border-top xs-border-bottom sm-border-bottom-none sm-border-top-none sm-border-left-none sm-border-right xs-p2"
       >
-        <div class="item xs-flex">
-          <lazy-bael-search />
-        </div>
-      </div>
-      <div v-if="pagetitle" style="z-index:55;" class="c-12 sm-border-top xs-p2 xs-text-6 titlebar">
-        <div class="item">
-          <nuxt-link to="/" exact>Home</nuxt-link>
-          <span v-if="path">
-            &nbsp;
-            <span class="text-gray-lightest">></span>
-            &nbsp; {{path}}
-          </span> &nbsp;
-          <span class="text-gray-lightest">></span>
-          &nbsp; {{pagetitle}}
-        </div>
+        <ul class="menu-container">
+          <li>
+            <nuxt-link to="/bio" exact>bio</nuxt-link>
+          </li>
+          <li>premios</li>
+          <li>cartel</li>
+          <li>logos</li>
+          <li>ilustración</li>
+          <li>editorial</li>
+          <li>calendarios</li>
+          <li>contacto</li>
+        </ul>
       </div>
     </div>
   </nav>
@@ -48,7 +48,7 @@ export default {
   },
 };
 </script>
-<style>
+<style lang="scss">
 #navbar {
   z-index: 999;
 }
@@ -66,21 +66,45 @@ export default {
 }
 nav {
   position: fixed;
-  background: white;
+  background: rgb(29, 29, 29);
   top: 0;
   left: 0;
   right: 0;
 }
 .sitename {
-  color: #000;
+  color: #fff;
   font-family: "Inter", sans-serif;
-  text-transform: uppercase;
+  text-transform: lowercase;
   font-weight: 800;
-  font-size: 18px;
+  font-size: 1.3rem;
+}
+
+.menu-nav {
+  margin-top: 2%;
+}
+.menu-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: left;
+  list-style-type: none;
+  color: #fff;
+  padding: 0;
+}
+.menu-container li {
+  margin: 0.2rem;
+  padding: 0rem 0.1rem;
+  font-size: 0.7rem;
 }
 @media only screen and (max-width: 40rem) {
   .results {
     width: 94vw;
   }
+}
+
+.subtitle {
+  font-family: "Sofia", cursive;
+  text-transform: lowercase;
+  font-weight: 100;
 }
 </style>

@@ -18,10 +18,8 @@ export const actions = {
   async fetchInfo({ commit }, $content) {
     try {
       const info = await $content("setup", "info").fetch();
-      const connect = await $content("setup", "connect").fetch();
       const categories = await $content("category").fetch();
       commit('SET_INFO', info)
-      commit('SET_CONNECT', connect.connectlinks)
       commit('SET_CATEGORIES', categories)
     } catch (e) {
       const error = 'Initial Setup Error: ' + e.message + e
@@ -43,9 +41,6 @@ export const mutations = {
   },
   SET_ERROR(state, error) {
     state.info = error
-  },
-  SET_CONNECT(state, data) {
-    state.connect = data
   },
   SET_CURRENT(state, data) {
     state.current = data

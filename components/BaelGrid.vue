@@ -1,5 +1,5 @@
 <template>
-  <div :class="['xs-text-6 md-text-5 bael-grid', {paginated: hasPagination}]">
+  <div :class="['xs-text-6 md-text-5 bael-grid']">
     <div v-if="posts.length" class="r full-height browse">
       <div
         v-intersect
@@ -10,17 +10,15 @@
       >
         <div class="item xs-block xs-full-height xs-flex">
           <nuxt-link
-            class="xs-text-center xs-flex xs-full-height xs-flex-align-center xs-flex-justify-center xs-text-center"
+            class=""
             :to="p.path"
-          >{{p.title}}</nuxt-link>
+          >
+          <img class="flex-align-center flex-justify-center " :src="p.thumbnail" alt="">
+          </nuxt-link>
         </div>
       </div>
     </div>
-    <div v-else class="r full-height browse">
-      <div class="xs-p2 c-100 xs-flex xs-flex-align-center xs-flex-justify-center xs-text-center">
-        <div v-if="posts.length < 1 && !busy">No Results.</div>
-      </div>
-    </div>
+
   </div>
 </template>
 
